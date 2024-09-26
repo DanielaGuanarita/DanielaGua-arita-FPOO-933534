@@ -1,11 +1,12 @@
 #---------
-#person
 
+#person
 #dni : int
 #name : str
 #lastname : int
 #role : int
 #--------------
+
 
 from faker import Faker
 import random
@@ -31,9 +32,19 @@ def select_role():
         if(person["role"] == 1):
             person["role"] = "Administrativo"
         elif(person["role"] == 2):
-            person["role"] = "Profesor"
+            person["role"] = "Profesor"   
         else:
             person["role"] = "Estudiante"
+
+def match_role():
+    for person in people_list:
+        match person["role"]:
+            case "Administrativo":
+                person["role"] = 1
+            case "Profesor":
+                person["role"] = 2
+            case "Estudiante":
+                person["role"] = 3
 
 
 def print_people():
@@ -45,6 +56,7 @@ def print_people():
 number = int(input("Por favor ingrese la cantidad de usuarios:\n"))
 generate_people(number)
 select_role()
+match_role()
 print_people()
 
 
