@@ -21,8 +21,6 @@ class Book:
         return f"Libro: {self.title}"
 
 
-
-
 #------------------------------------
 
 class Library:
