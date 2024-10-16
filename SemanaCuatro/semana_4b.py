@@ -158,8 +158,8 @@ def main():
     cinema_2.add_movie(movie_4)
     cinema_3.add_movie(movie_5)
 
-    for movie in cinema_3.movies:
-        print(movie)
+    for movie in cinema_2.movies:
+        print(cinema_1)
 
 
 
