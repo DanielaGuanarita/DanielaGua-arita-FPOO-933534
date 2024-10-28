@@ -1,173 +1,73 @@
-# class Author:
-#     def __init__(self, name, books):
-#         self.name = name
-#         self.books = []
-
-
-#     def __str__(self):
-#         return f"{self.name}"
-
-#     def add_book(self, book):
-#         self.books.append(book)
-
-#     def get_books(self):
-#         return self.books
-
-
-# class Book:
-#     def __init__(self, title, pages, author):
-#         self.title = title
-#         self.pages = pages
-#         self.author = author
-
-#     def __repr__(self):
-#         return f"Book(title={self.title}, pages={self.pages}, author={self.author})"
-
-# class Library: 
-#     def __init__(self, ):
-#         self.books = []
-    
-#     def add_book(self, book):
-#         self.books.append(book)
-
-#     def get_books(self):
-#         return self.books
-
-
-
-# def main():
-
-#     author_1 = Author('Gabriel', [])
-#     author_2 = Author('Neruda', [])
-
-#     book_1 = Book('Cien años de soledad', 493, author_1)
-#     book_2 = Book('El coronel no tiene quien le escriba', 703, author_1)
-#     book_3 = Book('La felicidad', 293, author_2)
-
-#     # print(author_1)
-
-#     author_1.add_book(book_1)
-#     author_1.add_book(book_2)
-#     author_2.add_book(book_3)
-
-#     books_author2 =author_2.get_books()
-
-#     library = Library()
-
-#     library.add_book(book_1)
-#     library.add_book(book_2)
-#     library.add_book(book_3)
-
-
-#     list_books = library.get_books()
-
-#     for book in list_books:
-#         print(book.author)
-
-# main()
-
-
-
-
-
-# # for book in books_author1:
-# #     print(book)
-
-
-# # #print(author_1)
-
-
-class Director:
-    def __init__(self, name, nacionality, movies):
-        self.name = name
-        self.nacionality = nacionality
-        self.movies = []
+class Autor:
+    def __init__(self, nombre, nacionalidad):
+        self.nombre = nombre
+        self.nacionalidad = nacionalidad
+        self.libros = []
 
 
     def __str__(self):
-        return f"{self.name}"
+        return f"({self.nombre}, {self.nacionalidad})"
 
-    def add_movie(self, movie):
-        self.movies.append(movie)
+    def agregar_libro(self, libro):
+        self.libros.append(libro)
 
-    def get_movies(self):
-        return self.movies
+    def mostrar_libros(self):
+        return self.libros
 
 
-class Movies:
-    def __init__(self, title, generate, duration, director):
-        self.title = title
-        self.generate = generate
-        self.duration = duration
-        self.director = director
+class Libro:
+    def __init__(self, titulo, autor):
+        self.titulo = titulo
+        self.autor = autor
 
     def __repr__(self):
-        return f"Movies(title={self.title}, generate={self.generate}, duration={self.duration}, director={self.director})"
-     
+        return f"({self.titulo}, de {self.autor})"
 
 
-class Cinema: 
-    def __init__(self, name, address, bilboard):     
-        self.name = name
-        self.address = address
-        self.bilboard = bilboard
-        self.movies = []
-    
+class Secciones:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.libros = [] 
+
+    def agregar_libro(self, libro):
+        self.libros.append(libro)
+
+    def mostrar_libros(self):
+            print(f'Sección: {self.nombre}')
+            for libro in self.libros:
+                print(f' {libro}')
 
 
+    def mostrar_libros_de_autor(autor):
+        list = []
+        for libro in self.libros:
+            if libro.autor == autor:
+                list.append(libro.titulo)
 
-    def add_movie(self, movie):
-        self.movies.append(movie)
+        print(list)
 
-    def get_movies(self):
-        return self.movies
 
 
 def main():
 
-    director_1 = Director('M. Night Shyamalan', 'India', [])
-    director_2 = Director('Dennis Dugan', 'Estadounidense', [])
-    director_3 = Director('Matthew Vaughn', 'Londres', [])
+    autor_1 = Autor('Gabriel Garcia Marquez', 'Colombiano')
+    autor_2 = Autor('Stephen King', 'Estadounidense')
+    autor_3 = Autor("J.K. Rowling", 'Reino Unido')
+
+    libro_1 = Libro('Cien años de soledad', autor_1)
+    libro_2 = Libro('El instituto', autor_2)
+    libro_3 = Libro('El cazador de sueños', autor_2)
+    libro_4 = Libro('Harry Potter y la piedra filosofal', autor_3)
+
+    seccion_ficcion = Secciones("Ficción")
+    seccion_fantasia = Secciones("Fantasía")
+    seccion_terror = Secciones("Terror")
 
 
-    movie_1 = Movies('Fragmentado', 'Terror intriga', 1.57,  director_1)
-    movie_2 = Movies('Los huespedes', 'Terror', 1.34, director_1)
-    movie_3 = Movies('Una esposa de mentiras', 'Comedia-Romance', 1.57, director_2)
-    movie_4 = Movies('Son como niños dos', 'Comedia', 1.41, director_2)
-    movie_5 = Movies('Kingsman', 'Accion', 2.09, director_3)
-
-
-
-    cinema_1 = Cinema('Cine colombia', 'Cra 49 # 9-5o', 'Fragmentado')
-    cinema_2 = Cinema('Royal films', 'Cra 98 # 16-200', 'Los huespedes')
-    cinema_3 = Cinema('Cinepolis', 'Clle 5 # 69-03', 'Una esposa de mentiras')
-
-
-
-    director_1.add_movie(movie_1)
-    director_1.add_movie(movie_2)
-    director_2.add_movie(movie_3)
-    director_2.add_movie(movie_4)
-    director_3.add_movie(movie_5)
-
-
-
-    cinema_1.add_movie(movie_1)
-    cinema_1.add_movie(movie_2)
-    cinema_2.add_movie(movie_3)
-    cinema_2.add_movie(movie_4)
-    cinema_3.add_movie(movie_5)
-
-    for movie in cinema_2.movies:
-        print(cinema_1)
-
-
-
-
-    # list_movies = cinema.get_movies()
-
-    # for movie in list_movies:
-    #     print(movie.director)
+    seccion_ficcion.agregar_libro(libro_1)
+    seccion_terror.agregar_libro(libro_2)
+    seccion_terror.agregar_libro(libro_3)
+    seccion_fantasia.agregar_libro(libro_4)
 
 
 main()
